@@ -1,0 +1,21 @@
+<p style="color: green"><%= notice %></p>
+<div id="post">
+  <div class="col-lg-8 mx-auto">
+    <div class="card shadow">
+      <div class="card-header">
+        <h1 class="card-title">Edit Post</h1>  
+      </div>
+          <div class="card-body">
+            <%= render "form", post: @post %>
+            <div>
+              <%= link_to "Show this post", @post %> 
+
+            </div>
+          </div>  
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

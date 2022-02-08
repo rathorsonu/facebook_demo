@@ -1,0 +1,13 @@
+<%=post.likes.count%>likes
+<%like = Like.find_by(user_id: current_user.id ,likeable_id: post.id,likeable_type: "post")%>
+<%if (like).nil? %>
+	<div class="me-2">
+		<i>
+			<%= button_to 'like',likes_path(:like => {:likeable_id => post.id , :likeable_type => "Post"}), method: :post , class: "text-primary fas fa-thumbs-up"%>
+		</i>
+	</div>
+<%else%>
+	<div>
+		<%= button_to 'unlike' ,(like) , method: :delete ,class:"text-primary fas fa-thumbs-up" %>
+	</div>
+<%end%>

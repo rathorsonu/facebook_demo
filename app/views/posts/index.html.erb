@@ -1,0 +1,28 @@
+
+  <div class="col-lg-8-mx-auto">
+  <h1>post</h1>
+  <%= link_to "New post", new_post_path ,class: "btn btn-primary"%>
+   <%= render :partial => 'search', :locals => {:post => @post} %>
+  <div id="posts">
+    <% @posts.each do |post| %>
+      <div class="card shadow mb-3">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-5">
+              <%= image_tag post.image, class: 'img-fluid' if post.image.attached? %> 
+              <hr>
+                <%if post.user == current_user%>
+                  <%= link_to "Show this post", post , class: "btn btn-success"%>
+                <%end%>
+              </div>
+              <div class="col-lg-7">
+                <%= render post %>
+              </div>
+          </div>
+        </div>
+      </div> 
+      <% end %>
+  </div>
+</div>
+
+

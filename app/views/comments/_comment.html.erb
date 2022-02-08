@@ -1,0 +1,19 @@
+<%post.comments.each do|comment|%>
+  <p>
+  <strong>commenter</strong>
+  <%= comment.commenter%>
+  </p>
+    <%like = Like.find_by(user_id: current_user.id ,likeable_id: comment.id,likeable_type: "Comment")%>
+    <%if (like).nil? %>
+      <div class="me-2">
+        <i>
+          <%= button_to 'like',likes_path(:like => {:likeable_id => comment.id , :likeable_type => "Comment"}), method: :post , class: "text-primary fas fa-thumbs-up"%>
+          </i>
+      </div>
+
+    <%else%>
+        <div>
+          <%= button_to 'unlike' ,(like) , method: :delete ,class:"text-primary fas fa-thumbs-up" %>
+        </div>
+    <%end%>
+<%end%>

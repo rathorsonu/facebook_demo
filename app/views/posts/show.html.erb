@@ -1,0 +1,18 @@
+<p style="color: green"><%= notice %></p>
+<div id="post">
+	<div class="col-lg-8">
+		<div class="card shadow">
+			<div class="card-body">
+				<%= render :partial => 'search', :locals => {:post => @post} %>
+					<%= image_tag @post.image, size:200, class: 'img-fluid' if @post.image.attached? %>
+					<div class="row">
+						<div class="col-lg-5">
+							<%= render @post %><br>
+							<%= link_to "Edit this post " , edit_post_path(@post) ,class: "btn btn-warning" %> <br>&nbsp
+							<%= button_to 'Destroy this post', @post, data: { confirm: 'Are you sure?' }, method: :delete ,class: "btn btn-danger"%> 
+						</div>
+				  </div>        
+			</div>
+		</div>	
+	</div>																														    
+</div>
